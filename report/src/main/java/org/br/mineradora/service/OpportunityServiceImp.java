@@ -17,6 +17,7 @@ import org.br.mineradora.utils.CSVHelper;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class OpportunityServiceImp implements OpportunityService{
@@ -28,6 +29,7 @@ public class OpportunityServiceImp implements OpportunityService{
     OpportunityRepository opportunityRepository;
     
     @Override
+    @Transactional
     public void buildOpportunity(ProposalDTO proposal) {
         
         List<QuotationEntity> quotationEntities = quotationRepository.findAll().list();
@@ -44,15 +46,33 @@ public class OpportunityServiceImp implements OpportunityService{
         
     }
     
-
+    
     @Override
+    @Transactional
     public List<OpportunityDTO> generateOpportunityData() {
-        
-        return null;
+
+        List<OpportunityDTO> opportunities = new ArrayList<>();
+
+        opportunityRepository
+                .findAll()
+                .stream()
+                .forEach(item->{
+                    opportunities.add(OpportunityDTO.builder()
+                            .proposalId(item.getProposalId())
+                            .customer(item.getCustomer())
+                            .priceTonne(item.getPriceTonne())
+                            .lastDollarQuotation(item.getLastDollarQuotation())
+                            .build());
+                });
+
+        return opportunities;
+
     }
 
 
+
     @Override
+    @Transactional
     public void saveQuotation(QuotationDTO quotation) {
         
         QuotationEntity createQuotation = new QuotationEntity();

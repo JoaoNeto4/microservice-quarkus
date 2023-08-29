@@ -39,7 +39,7 @@ public class QuotationService {
 		if (updateCurrentInfoPrice(currencyPriceInfo)) {
 			kafkaEvents.sendNewKafkaEvent(QuotationDTO
 					.builder()
-					.currencyPrivce(new BigDecimal(currencyPriceInfo.getUSDBRL().getBid()))
+					.currencyPrice(new BigDecimal(currencyPriceInfo.getUSDBRL().getBid()))
 					.date(new Date())
 					.build());
 		}
