@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.br.mineradora</groupId>
-  <artifactId>report</artifactId>
+  <artifactId>gateway-bff</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
@@ -12,7 +12,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>3.3.0</quarkus.platform.version>
+    <quarkus.platform.version>3.3.1</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.1.2</surefire-plugin.version>
   </properties>
@@ -28,49 +28,36 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-orm-panache</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-mysql</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
-      <scope>provided</scope>
+  	<dependency>
+	    <groupId>io.quarkus</groupId>
+	    <artifactId>quarkus-oidc</artifactId>
 	  </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-csv</artifactId>
-      <version>1.8</version>
-	  </dependency>
-    <!--jwt-->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-oidc</artifactId>
-    </dependency>
-    <dependency>
-	      <groupId>io.quarkus</groupId>
-	      <artifactId>quarkus-oidc-token-propagation-reactive</artifactId>
+	    <groupId>io.quarkus</groupId>
+	    <artifactId>quarkus-oidc-token-propagation-reactive</artifactId>
 	  </dependency>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
-    </dependency>
+	    <groupId>io.quarkus</groupId>
+	    <artifactId>quarkus-smallrye-openapi</artifactId>
+	  </dependency>
+    <dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-csv</artifactId>
+	    <version>1.8</version>
+	  </dependency>
+    <dependency>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>1.18.24</version>
+		  <scope>provided</scope>
+	  </dependency>
+    <dependency>
+		  <groupId>io.quarkus</groupId>
+		  <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+	  </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-orm</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>

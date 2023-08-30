@@ -13,7 +13,6 @@ import org.br.mineradora.entity.OpportunityEntity;
 import org.br.mineradora.entity.QuotationEntity;
 import org.br.mineradora.repository.OpportunityRepository;
 import org.br.mineradora.repository.QuotationRepository;
-import org.br.mineradora.utils.CSVHelper;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -84,20 +83,4 @@ public class OpportunityServiceImp implements OpportunityService{
     }
 
 
-    @Override
-    public ByteArrayInputStream generateCSVOportunityReport() {
-        
-        List<OpportunityDTO> opportunityList = new ArrayList<>();
-
-        opportunityRepository.findAll().list().forEach(item-> {
-            opportunityList.add(OpportunityDTO.builder()
-                .proposalId(item.getProposalId())
-                .customer(item.getCustomer())
-                .priceTonne(item.getPriceTonne())
-                .lastDollarQuotation(item.getLastDollarQuotation())
-                .build());
-        });
-
-        return CSVHelper.OpportunitiesToCSV(opportunityList);
-    }
 }

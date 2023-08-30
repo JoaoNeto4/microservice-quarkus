@@ -14,7 +14,7 @@ import org.br.mineradora.dto.OpportunityDTO;
 public class CSVHelper {
     
 
-    public static ByteArrayInputStream OpportunitiesToCSV(List<OpportunityDTO> opportunities){
+        public static ByteArrayInputStream OpportunitiesToCSV(List<OpportunityDTO> opportunities){
         final CSVFormat format = CSVFormat.DEFAULT.
             withHeader(
                 "ID Proposta", 
