@@ -1,6 +1,5 @@
 package org.br.mineradora.service;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
