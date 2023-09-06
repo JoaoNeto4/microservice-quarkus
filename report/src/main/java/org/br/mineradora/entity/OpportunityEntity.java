@@ -3,7 +3,6 @@ package org.br.mineradora.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

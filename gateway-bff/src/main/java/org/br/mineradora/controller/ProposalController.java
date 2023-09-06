@@ -2,15 +2,11 @@ package org.br.mineradora.controller;
 
 import org.br.mineradora.dto.ProposalDetailsDTO;
 import org.br.mineradora.service.ProposalService;
+import org.keycloak.admin.client.Keycloak;
 
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.ServerErrorException;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -19,6 +15,9 @@ public class ProposalController {
 
     @Inject
     ProposalService proposalService;
+
+    @Inject
+    Keycloak keycloak;
 
     @GET
     @Path("/{id}")
